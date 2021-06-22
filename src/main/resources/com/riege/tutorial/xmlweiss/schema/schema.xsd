@@ -1,0 +1,20 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xmlns="http://dtd.riege.com/daddel/daddel"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.w3.org/2001/XMLSchema http://www.w3.org/2001/XMLSchema.xsd"
+    targetNamespace="http://dtd.riege.com/daddel/daddel"
+    elementFormDefault="qualified"
+    attributeFormDefault="unqualified">
+
+    <xs:element name="foo">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="bar" type="xs:string" minOccurs="1" />
+                <xs:element name="baz" type="xs:normalizedString" minOccurs="1" />
+                <xs:element name="qux" type="xs:token" minOccurs="1" />
+                <xs:element name="quux" type="xs:NMTOKEN" minOccurs="1" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+</xs:schema>

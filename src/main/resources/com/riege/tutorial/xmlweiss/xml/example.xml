@@ -1,0 +1,6 @@
+<foo xmlns="http://dtd.riege.com/daddel/daddel">
+    <bar>wurst</bar>
+    <baz>käse</baz>
+    <qux>sachen</qux>
+    <quux>dinge</quux>
+</foo>
