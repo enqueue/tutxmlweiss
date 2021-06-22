@@ -27,7 +27,8 @@ final class XMLTransformator extends AbstractXMLWeissThing {
         DocumentBuilder bob = fac.newDocumentBuilder();
         Document doc = bob.parse(new InputSource(new StringReader(xml)));
         TransformerFactory tf = TransformerFactory.newInstance();
-        Transformer t = tf.newTransformer(new StreamSource(XMLTransformator.class.getResourceAsStream("xslt/stylesheet.xslt")));
+        Transformer t = tf.newTransformer(
+            new StreamSource(XMLTransformator.class.getResourceAsStream("xslt/stylesheet.xslt")));
         try (StringWriter sw = new StringWriter()) {
             t.transform(new DOMSource(doc), new StreamResult(sw));
             return sw.toString();

@@ -88,6 +88,13 @@ To explicitly coerce some characters into a desired format, we can use some XPat
 
 Remember to exclude text nodes by default.
 
+## Recommendations
+
+1. Use `<xs:string>` carefully. It is good for "free text" documents, but not always the best choice for qualified data. Examples: Nature of goods, remarks.
+2. Use `<xs:NMTOKEN>` only when you mean it, i.e. there is already such a restriction. Natural choice for official code list codes, but too restrictive for short, human-readable identifiers.
+3. Always provide the schema to your parser.
+4. Have fun!
+
 
 ## Links
 

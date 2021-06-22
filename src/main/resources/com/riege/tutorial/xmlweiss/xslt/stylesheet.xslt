@@ -8,7 +8,7 @@
         version="1.0">
 
     <xsl:output method="xml" encoding="utf-8" />
-    
+
     <xsl:template match="text()" />
 
     <xsl:template match="da:foo">
