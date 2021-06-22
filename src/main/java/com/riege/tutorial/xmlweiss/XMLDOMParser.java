@@ -47,7 +47,6 @@ final class XMLDOMParser extends AbstractXMLWeissThing {
         // fac.setIgnoringElementContentWhitespace(true);
         try {
             DocumentBuilder bob = fac.newDocumentBuilder();
-            // bob.setErrorHandler(new MyErrorHandler());
             return bob.parse(new InputSource(new StringReader(xml)));
         } catch (Exception e) {
             throw new RuntimeException(
