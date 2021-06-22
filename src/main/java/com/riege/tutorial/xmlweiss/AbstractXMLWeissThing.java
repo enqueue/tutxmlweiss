@@ -12,7 +12,6 @@ import org.xml.sax.SAXException;
 
 /**
  * Base class for XML whitespace tutorial
- * @author Felix Mueller
  */
 abstract class AbstractXMLWeissThing {
 

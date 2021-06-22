@@ -11,7 +11,6 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
  * Tests for {@link XMLValidator}
- * @author Felix Mueller
  */
 class XMLValidatorTest extends AbstractXMLWeissTestCase {
 

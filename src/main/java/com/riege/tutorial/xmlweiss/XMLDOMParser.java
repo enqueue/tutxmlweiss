@@ -14,7 +14,6 @@ import org.xml.sax.InputSource;
 
 /**
  * Parse XML into DOM
- * @author Felix Mueller
  */
 final class XMLDOMParser extends AbstractXMLWeissThing {
 

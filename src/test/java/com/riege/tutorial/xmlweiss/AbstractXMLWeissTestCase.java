@@ -9,7 +9,6 @@ import java.nio.file.Paths;
 
 /**
  * Abstract base class for tests in our great XML whitespace tutorial
- * @author Felix Mueller
  */
 abstract class AbstractXMLWeissTestCase {
 

@@ -4,6 +4,9 @@
  */
 package com.riege.tutorial.xmlweiss;
 
+import java.io.IOException;
+import java.io.OutputStreamWriter;
+import java.nio.charset.StandardCharsets;
 import java.util.function.Function;
 
 import org.junit.jupiter.api.Test;
@@ -16,7 +19,6 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 /**
  * Unit tests for {@link XMLDOMParser}
- * @author Felix Mueller
  */
 class XMLDOMParserTest extends AbstractXMLWeissTestCase {
 
@@ -201,20 +203,32 @@ class XMLDOMParserTest extends AbstractXMLWeissTestCase {
             loadExample().replaceAll(
                 "<" + elementName + ">.*</" + elementName + ">",
                 "<" + elementName + ">" + input + "</" + elementName + ">"));
-        printNode(doc, "");
+        printNode(doc);
         String actual = doc.getElementsByTagName(elementName)
             .item(0).getFirstChild().getNodeValue();
         assertEquals(expected, actual);
     }
 
-    private static void printNode(Node rootNode, String indent) {
-        System.out.println(indent + "["
-            + translateNodeType(rootNode.getNodeType()) + "] "
-            + rootNode.getNodeName() + ": "
-            + rootNode.getNodeValue());
-        NodeList nl = rootNode.getChildNodes();
+    private static void printNode(Node rootNode) throws IOException {
+        StringBuilder sb = new StringBuilder();
+        appendNode(sb, rootNode, "");
+        OutputStreamWriter osw = new OutputStreamWriter(System.out, StandardCharsets.UTF_8);
+        osw.write(sb.toString());
+        osw.flush();
+    }
+
+    private static void appendNode(StringBuilder sb, Node node, String indent) {
+        sb.append(indent)
+          .append('[')
+          .append(translateNodeType(node.getNodeType()))
+          .append("] ")
+          .append(node.getNodeName())
+          .append(": ")
+          .append(node.getNodeValue())
+          .append("\n");
+        NodeList nl = node.getChildNodes();
         for (int i = 0; i < nl.getLength(); i++) {
-            printNode(nl.item(i), indent + "   ");
+            appendNode(sb, nl.item(i), indent + "   ");
         }
     }
 

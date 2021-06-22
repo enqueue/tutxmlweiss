@@ -13,7 +13,6 @@ import org.xml.sax.SAXParseException;
 
 /**
  * Simple {@link ErrorHandler}
- * @author Felix Mueller
  */
 final class MyErrorHandler implements ErrorHandler {
 

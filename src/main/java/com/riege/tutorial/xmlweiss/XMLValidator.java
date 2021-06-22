@@ -14,7 +14,6 @@ import org.xml.sax.SAXException;
 
 /**
  * Class for validating XML documents against our favourite XML schema
- * @author Felix Mueller
  */
 final class XMLValidator extends AbstractXMLWeissThing {
 
