@@ -19,13 +19,16 @@ abstract class AbstractXMLWeissTestCase {
         "  Salami\n Mortadella \t\t \n Mettwurst ";
 
     protected static final String loadExample() throws Exception {
+        return loadXMLFile("example.xml");
+    }
+
+    protected static final String loadXMLFile(String fileName) throws Exception {
         return Files.readString(
-            Paths.get(XMLDOMParserTest.class.getResource("xml/example.xml").toURI()));
+            Paths.get(XMLDOMParserTest.class.getResource("xml/" + fileName).toURI()));
     }
 
     protected static final String loadBrokenExample() throws Exception {
-        return Files.readString(
-            Paths.get(XMLDOMParserTest.class.getResource("xml/example_broken.xml").toURI()));
+       return loadXMLFile("example_brokwn.xml");
     }
 
 }

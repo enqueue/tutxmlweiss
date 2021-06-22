@@ -80,6 +80,15 @@ v.setErrorHandler(new MyErrorHandler());
 v.validate(new StreamSource(new StringReader(xml)));
 ```
 
+## Transformation
+
+When performing an XSLT transformation, empty text nodes are automatically [stripped](https://www.w3.org/TR/1999/REC-xslt-19991116#strip), unless you mess with `<xsl:strip-space>` or `<xsl:preserve-space>` settings. This is important when we use the `position()` function in our stylesheet, e.g. to increment a counter value.
+
+To explicitly coerce some characters into a desired format, we can use some XPath functions, e.g. [normalize-space()](https://www.w3.org/TR/xpath-functions/#func-normalize-space).
+
+Remember to exclude text nodes by default.
+
+
 ## Links
 
 * [javax.xml](https://devdocs.io/openjdk~11/java.xml/module-summary)
