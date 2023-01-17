@@ -1,7 +1,7 @@
 plugins {
     id 'checkstyle'
     id 'java'
-    id 'com.github.spotbugs' version '4.7.1'
+    id 'com.github.spotbugs' version '5.0.13'
 }
 
 repositories {
