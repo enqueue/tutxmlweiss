@@ -6,9 +6,6 @@ on:
   pull_request:
     branches: [master]
 
-env:
-  JAVA_VERSION: '11'
-
 jobs:
   build:
 
@@ -20,20 +17,10 @@ jobs:
       - name: Set up JDK
         uses: actions/setup-java@v3
         with:
-          distribution: 'adopt'
-          java-version: '11'
+          distribution: 'temurin'
+          java-version: '17'
+          cache: 'gradle'
 
-      - name: Cache Gradle Stuff
-        uses: actions/cache@v3
-        with:
-          path: |
-            ~/.gradle/caches
-            ~/.gradle/wrapper
-          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
-          restore-keys: |
-            ${{ runner.os }}-gradle-
-
-      # Unit Tests & Style Checks
       - name: Run Checks (JUnit, Checkstyle, SpotBugs)
         run: ./gradlew --continue check
 
@@ -42,7 +29,6 @@ jobs:
         if: always()
         with:
           report_paths: '**/build/test-results/test/TEST-*.xml'
-          github_token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Publish Checkstyle Report
         uses: jwgmeligmeyling/checkstyle-github-action@v1.2
